@@ -4,11 +4,19 @@
     <ul>
     <% @user_urls.each do |url_obj|%>
       <li>
-        <span>ShortURL: <%=url_obj.short_url%></span>
+        <span>ShortURL: <%= link_to "http://localhost:3000/#{url_obj.short_url}", url_path(url_obj)%></span><br>
         <span>For: <%=url_obj.long_url[7..25]%></span>
-        <a href="/"></a>
+        <a href="/">Delete Link</a>
       </li>
     <% end %>
     </ul>
   </div>
+
+  <%= form_for @url do |f|%>
+    <%= f.label :long_url%>
+    <%= f.text_field :long_url , autofocus: true%>
+    <%= f.submit "Generate Short Url" %>
+
+  <% end %>
+
 <% end %>
