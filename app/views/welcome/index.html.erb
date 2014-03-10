@@ -6,7 +6,7 @@
       <li>
         <span>ShortURL: <%= link_to "http://localhost:3000/#{url_obj.short_url}", url_path(url_obj)%></span><br>
         <span>For: <%=url_obj.long_url[7..25]%></span>
-        <a href="/">Delete Link</a>
+        <%= link_to "Delete", url_path(url_obj), method: :delete %>
       </li>
     <% end %>
     </ul>
