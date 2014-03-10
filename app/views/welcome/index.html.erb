@@ -1,2 +1,14 @@
 <h1>Welcome</h1>
-<%= link_to "Sign Up" ,new_user_session_path %>
+<% if current_user %>
+  <div id="urls">
+    <ul>
+    <% @user_urls.each do |url_obj|%>
+      <li>
+        <span>ShortURL: <%=url_obj.short_url%></span>
+        <span>For: <%=url_obj.long_url[7..25]%></span>
+        <a href="/"></a>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

@@ -1,0 +1,11 @@
+<h1>Profile <%=@user.email%></h1>
+<h2>Your Urls</h2>
+<ul>
+<% @user_urls.each do |url_obj|%>
+  <li>
+    <span>ShortURL: <%=url_obj.short_url%></span>
+    <span>For: <%=url_obj.long_url[7..25]%></span>
+    <a href="/"></a>
+  </li>
+<% end %>
+</ul>
