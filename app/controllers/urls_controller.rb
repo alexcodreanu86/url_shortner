@@ -8,6 +8,10 @@ class UrlsController < ApplicationController
     if @url.save
       redirect_to root_path
     else
+      # CODE REVIEW: Unreachable
+      # Also, flash messages live until the next request, so you'd see this
+      # message twice, once on the render, then once after the redirect on
+      # line 9 (assuming you succeed the second time)
       flash[:fail]="Invalid url"
       render :new
     end
